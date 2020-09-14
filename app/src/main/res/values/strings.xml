@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tmdb</string>
+    <string name="title_activity_main">TMDB app</string>
+    <string name="search_tmdb">Search TMDB</string>
+    <string name="moviePoster">Poster of the movie</string>
+    <string name="average_vote">Average vote:</string>
+</resources>

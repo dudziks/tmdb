@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loading"
+            type="String" />
+        <variable
+            name="movieDetails"
+            type="com.mdlab.tmdb.viewmodel.MovieData" />
+        <variable
+            name="viewModel"
+            type="com.mdlab.tmdb.viewmodel.TMDBViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_dark">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".ui.MainActivity">
+
+            <ImageView
+                android:id="@+id/imageViewPoster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/image_margin"
+                android:layout_marginTop="@dimen/image_margin"
+                android:layout_marginEnd="@dimen/image_margin"
+                android:adjustViewBounds="true"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/moviePoster" />
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginTop="@dimen/title_top_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:text="@{movieDetails.title}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="@color/text_color_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewPoster"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/textViewReleaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:text="@{movieDetails.release_date}"
+                android:textColor="@color/text_color_date"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textViewRating"
+                app:layout_constraintEnd_toStartOf="@+id/checkBoxFav"
+                tools:text="2012-05-05" />
+
+            <TextView
+                android:id="@+id/textViewRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_small"
+                android:text="@{String.valueOf(movieDetails.vote_average)}"
+                android:textColor="@color/text_color_title"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textViewRatingDsc"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+                tools:text="8.9" />
+
+            <TextView
+                android:id="@+id/textViewRatingDsc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin_small"
+                android:text="@string/average_vote"
+                android:textColor="@color/text_color_title"
+                app:layout_constraintStart_toStartOf="@+id/textViewTitle"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+                tools:text="Average vote:" />
+
+            <TextView
+                android:id="@+id/textViewOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/text_margin"
+                android:text="@{movieDetails.overview}"
+                android:textColor="@color/text_normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRating"
+                tools:text="Our API is available for everyone to use. " />
+
+
+            <CheckBox
+                android:id="@+id/checkBoxFav"
+                android:layout_width="@dimen/checkboxSize"
+                android:layout_height="@dimen/checkboxSize"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:button="@drawable/check_star"
+                android:checked="@{movieDetails.fav}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textViewReleaseDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:useMaterialThemeColors="false" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

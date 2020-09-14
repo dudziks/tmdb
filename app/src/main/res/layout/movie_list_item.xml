@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="com.mdlab.tmdb.model.movies.Result"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movieItem">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:text="@{item.original_title}"
+            android:textColor="@color/text_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/checkBoxFav"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <CheckBox
+            android:id="@+id/checkBoxFav"
+            android:layout_width="@dimen/checkboxSize"
+            android:layout_height="@dimen/checkboxSize"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:button="@drawable/check_star"
+            android:checked="@{item.fav}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:useMaterialThemeColors="false" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

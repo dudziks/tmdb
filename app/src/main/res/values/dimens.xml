@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="image_margin">16dp</dimen>
+    <dimen name="checkboxSize">24dp</dimen>
+    <dimen name="title_top_margin">24dp</dimen>
+    <dimen name="text_margin_small">8dp</dimen>
+</resources>
